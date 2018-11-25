@@ -177,10 +177,10 @@ if [ -f $BUILD_DIR/gulpfile.js ] || [ -f $BUILD_DIR/Gulpfile.js ]; then
 
   if [ ! -z "${GULP_TASK:-}" ]; then
     echo "Found GULP_TASK, running 'gulp $GULP_TASK'"
-    $BUILD_DIR/.heroku/node/lib/node_modules/gulp-cli/bin/gulp $GULP_TASK
+    gulp $GULP_TASK
   else
     echo "No GULP_TASK found, running 'gulp build'"
-    $BUILD_DIR/.heroku/node/lib/node_modules/gulp-cli/bin/gulp build
+    gulp build
   fi
 else
   header "No gulpfile found"
