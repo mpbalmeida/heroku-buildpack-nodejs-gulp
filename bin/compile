@@ -172,15 +172,15 @@ if [ -f $BUILD_DIR/gulpfile.js ] || [ -f $BUILD_DIR/Gulpfile.js ]; then
   if [ -e node_modules/.bin/gulp ]; then
     npm update gulp 2>&1 | indent
   else
-    npm i -g gulp-cli 2>&1 | indent
+    npm install gulp 2>&1 | indent
   fi
 
   if [ ! -z "${GULP_TASK:-}" ]; then
     echo "Found GULP_TASK, running 'gulp $GULP_TASK'"
-    $BUILD_DIR/node_modules/.bin/gulp $GULP_TASK
+    $BUILD_DIR/.heroku/node/lib/node_modules/.bin/gulp $GULP_TASK
   else
     echo "No GULP_TASK found, running 'gulp build'"
-    $BUILD_DIR/node_modules/.bin/gulp build
+    $BUILD_DIR/.heroku/node/lib/node_modules/.bin/gulp build
   fi
 else
   header "No gulpfile found"
